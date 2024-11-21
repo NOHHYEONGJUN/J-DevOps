@@ -1,0 +1,35 @@
+/* 기존 로고 숨기기 */
+#jenkins-name-icon {
+    display: none; /* 기존 로고 숨기기 */
+}
+
+/* 새로운 텍스트 로고 스타일 */
+.logo:after {
+    content: 'J - Jenkins'; /* 타이틀을 'J-Jenkins'로 변경 */
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* 기본 글꼴 지정 */
+    margin-left: 20px; /* 이미지와 텍스트 간의 간격 좁히기 */
+    margin-right: 12px;
+    color: white; /* 텍스트 색을 흰색으로 설정 */
+    line-height: 40px; /* 줄 높이 조정 */
+    vertical-align: middle; /* 텍스트가 수평 중앙에 위치하도록 조정 */
+}
+
+/* 로고 텍스트 클릭 가능하게 만들기 */
+#logo a {
+    display: flex; /* 로고와 텍스트를 가로로 나열하기 위한 flexbox 설정 */
+    align-items: center; /* 로고와 텍스트를 세로로 정렬 */
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: white; /* 링크 텍스트 색상 */
+}
+
+/* 로고 텍스트 호버 시 스타일 */
+#logo a:hover .logo:after {
+    text-decoration: underline; /* 텍스트에 밑줄 추가 (마우스 오버 시) */
+}
+
+/* 로고 텍스트 색상 */
+#logo a .logo:after {
+    color: white; /* 텍스트 색을 흰색으로 설정 */
+}
