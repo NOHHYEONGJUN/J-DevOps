@@ -1,0 +1,18 @@
+## backup file을 이용해 새로운 젠킨스에 기존 백업내용 적용 ##
+
+
+
+1. Jenkins 파드 정지
+
+kubectl scale deployment jenkins -n jenkins --replicas=0
+
+
+2. 백업 파일 복원
+
+kubectl cp jenkins_backup_[DATE].tar.gz jenkins/[POD_NAME]:/var/jenkins_home/
+kubectl exec -it [POD_NAME] -n jenkins -- tar xzf /var/jenkins_home/jenkins_backup_[DATE].tar.gz
+
+
+3. Jenkins 재시작
+
+kubectl scale deployment jenkins -n jenkins --replicas=1
