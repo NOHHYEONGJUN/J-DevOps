@@ -1,4 +1,28 @@
-.logo img {
-    content: url("https://github.com/NOHHYEONGJUN/J-DevOps/blob/main/images/test-logo6.png?raw=true");
-    height: 40px;
+/* 젠킨스 로고 변경 */
+#jenkins-home-link img {
+    content: url("https://github.com/NOHHYEONGJUN/J-DevOps/blob/main/jenkins/images/test-logo7.png?raw=true");
+    width: 60px; /* 원하는 크기로 조절 */
+    height: auto;
+}
+
+/* 웰컴 문구 변경 */
+#loginIntro {
+    display: none; /* 기존 웰컴 문구 숨기기 */
+}
+
+#loginIntro::after {
+    content: "원하는 웰컴 문구를 입력하세요";
+    display: block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 추가적인 로그인 페이지 스타일링 (선택사항) */
+.simple-page {
+    background-color: #f5f5f5;
+}
+
+.login-container {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }

@@ -1,0 +1,244 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harbor-custom-style
+  namespace: harbor
+data:
+  dark-theme.css: |
+    :root {
+      --clr-color-action-50: hsl(270, 83%, 94%);
+      --clr-color-action-100: hsl(270, 81%, 88%);
+      --clr-color-action-200: hsl(270, 78%, 78%);
+      --clr-color-action-300: hsl(270, 69%, 69%);
+      --clr-color-action-400: hsl(270, 66%, 57%);
+      --clr-color-action-500: hsl(270, 80%, 46%);
+      --clr-color-action-600: hsl(270, 100%, 32%);
+      --clr-color-action-700: hsl(270, 100%, 28%);
+      --clr-color-action-800: hsl(270, 100%, 24%);
+      --clr-color-action-900: hsl(270, 100%, 21%);
+      --header-color: hsl(270, 100%, 25%);
+    }
+    .header-container {
+      background-color: var(--header-color) !important;
+    }
+    .nav-link-container > .nav-link {
+      color: #ffffff !important;
+    }
+    .btn-primary {
+      background-color: var(--header-color) !important;
+      border-color: hsl(270, 100%, 32%) !important;
+      color: #ffffff !important;
+    }
+    .btn-primary:hover {
+      background-color: hsl(270, 100%, 28%) !important;
+    }
+    .side-nav {
+      background-color: hsl(270, 30%, 98%) !important;
+    }
+    .side-nav .nav-link {
+      color: #000000 !important;
+    }
+    .harbor-container, .harbor-body {
+      background-color: hsl(270, 20%, 99%) !important;
+      color: #000000 !important;
+    }
+    .table thead th {
+      background-color: var(--header-color) !important;
+      color: white !important;
+    }
+    .table tbody td {
+      color: #000000 !important;
+    }
+    a {
+      color: var(--header-color) !important;
+    }
+    a:hover {
+      color: hsl(270, 100%, 32%) !important;
+    }
+    .nav-item.active {
+      background-color: var(--header-color) !important;
+      color: white !important;
+    }
+    .search-input {
+      border-color: var(--header-color) !important;
+      color: #acbac3 !important;
+      background-color: transparent !important;
+    }
+    .text-primary {
+      color: #000000 !important;
+    }
+    .datagrid {
+      color: #000000 !important;
+    }
+    /* 레지스트리 이름 색상 */
+    .repository-name {
+      color: #000000 !important;
+    }
+
+    /* 로그인 페이지 스타일 */
+    .login-wrapper {
+      background: linear-gradient(135deg,
+        var(--header-color) 0%,
+        hsl(270, 45%, 35%) 50%,
+        hsl(270, 40%, 45%) 100%) !important;
+    }
+
+    /* 로그인 카드 */
+    .login-wrapper .login {
+      background-color: white !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* 로그인 버튼 */
+    .login-wrapper .btn-primary {
+      background-color: var(--header-color) !important;
+      border-color: hsl(270, 100%, 32%) !important;
+      width: 100% !important;
+    }
+
+    /* 로그인 입력 필드 */
+    .login-wrapper input {
+      border: 1px solid hsl(270, 20%, 90%) !important;
+      border-radius: 4px !important;
+      color: #000000 !important;
+    }
+
+    .login-wrapper input:focus {
+      border-color: var(--header-color) !important;
+      box-shadow: 0 0 0 2px hsla(270, 80%, 46%, 0.2) !important;
+    }
+
+    /* 로그인 배경 이미지 숨기기 */
+    .login-wrapper .login-aside {
+      background: none !important;
+    }
+    .harbor-logo {
+      font-size: 0 !important;  /* 기존 텍스트 숨기기 */
+    }
+    .harbor-logo:after {
+      content: "J-Harbor" !important;
+      font-size: 20px !important;
+      color: white !important;
+      font-weight: 500 !important;
+    }
+
+    /* 브라우저 탭 타이틀 변경 */
+    title {
+      font-size: 0 !important;
+    }
+    title:after {
+      content: "J-Harbor" !important;
+      font-size: inherit !important;
+    }
+
+
+  light-theme.css: |
+    :root {
+      --clr-color-action-50: hsl(270, 83%, 94%);
+      --clr-color-action-100: hsl(270, 81%, 88%);
+      --clr-color-action-200: hsl(270, 78%, 78%);
+      --clr-color-action-300: hsl(270, 69%, 69%);
+      --clr-color-action-400: hsl(270, 66%, 57%);
+      --clr-color-action-500: hsl(270, 80%, 46%);
+      --clr-color-action-600: hsl(270, 100%, 32%);
+      --clr-color-action-700: hsl(270, 100%, 28%);
+      --clr-color-action-800: hsl(270, 100%, 24%);
+      --clr-color-action-900: hsl(270, 100%, 21%);
+      --header-color: hsl(270, 100%, 25%);
+    }
+    .header-container {
+      background-color: var(--header-color) !important;
+    }
+    .nav-link-container > .nav-link {
+      color: #ffffff !important;
+    }
+    .btn-primary {
+      background-color: var(--header-color) !important;
+      border-color: hsl(270, 100%, 32%) !important;
+      color: #ffffff !important;
+    }
+    .btn-primary:hover {
+      background-color: hsl(270, 100%, 28%) !important;
+    }
+    .side-nav {
+      background-color: hsl(270, 30%, 98%) !important;
+    }
+    .side-nav .nav-link {
+      color: #000000 !important;
+    }
+    .harbor-container, .harbor-body {
+      background-color: hsl(270, 20%, 99%) !important;
+      color: #000000 !important;
+    }
+    .table thead th {
+      background-color: var(--header-color) !important;
+      color: white !important;
+    }
+    .table tbody td {
+      color: #000000 !important;
+    }
+    a {
+      color: var(--header-color) !important;
+    }
+    a:hover {
+      color: hsl(270, 100%, 32%) !important;
+    }
+    .nav-item.active {
+      background-color: var(--header-color) !important;
+      color: white !important;
+    }
+    .search-input {
+      border-color: var(--header-color) !important;
+      color: #acbac3 !important;
+      background-color: transparent !important;
+    }
+    .text-primary {
+      color: #000000 !important;
+    }
+    .datagrid {
+      color: #000000 !important;
+    }
+    /* 레지스트리 이름 색상 */
+    .repository-name {
+      color: #000000 !important;
+    }
+
+    /* 로그인 페이지 스타일 */
+    .login-wrapper {
+      background: linear-gradient(135deg,
+        var(--header-color) 0%,
+        hsl(270, 45%, 35%) 50%,
+        hsl(270, 40%, 45%) 100%) !important;
+    }
+
+    /* 로그인 카드 */
+    .login-wrapper .login {
+      background-color: white !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* 로그인 버튼 */
+    .login-wrapper .btn-primary {
+      background-color: var(--header-color) !important;
+      border-color: hsl(270, 100%, 32%) !important;
+      width: 100% !important;
+    }
+
+    /* 로그인 입력 필드 */
+    .login-wrapper input {
+      border: 1px solid hsl(270, 20%, 90%) !important;
+      border-radius: 4px !important;
+      color: #000000 !important;
+    }
+
+    .login-wrapper input:focus {
+      border-color: var(--header-color) !important;
+      box-shadow: 0 0 0 2px hsla(270, 80%, 46%, 0.2) !important;
+    }
+
+    /* 로그인 배경 이미지 숨기기 */
+    .login-wrapper .login-aside {
+      background: none !important;
+    }

@@ -1,0 +1,86 @@
+externalURL: http://113.198.66.75:10xxx
+
+expose:
+  type: ingress
+  tls:
+    enabled: false
+  ingress:
+    hosts:
+      core: harbor.local
+
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    registry:
+      storageClass: "local-storage"
+      size: 10Gi
+    chartmuseum:
+      enabled: false
+    jobservice:
+      storageClass: "local-storage"
+      size: 5Gi
+    database:
+      storageClass: "local-storage"
+      size: 5Gi
+    redis:
+      storageClass: "local-storage"
+      size: 5Gi
+    trivy:
+      storageClass: "local-storage"
+      size: 5Gi
+
+# Core 설정
+core:
+  absoluteURL: true
+  image:
+    pullPolicy: IfNotPresent
+
+# Jobservice 설정
+jobservice:
+  image:
+    pullPolicy: IfNotPresent
+  secret: "not-a-secure-key"
+  workers:
+    pool:
+      workers: 5
+  # Redis 연결 설정
+  redis:
+    namespace: "harbor_job_service"
+    timeout: 3600
+
+# Redis 설정
+redis:
+  type: internal
+  internal:
+    image:
+      pullPolicy: IfNotPresent
+
+# Database 설정
+database:
+  type: internal
+  internal:
+    image:
+      pullPolicy: IfNotPresent
+
+# 공통 설정
+commonName: harbor.local
+
+imagePullPolicy: IfNotPresent
+
+# 기본 설정
+nodeSelector:
+  kubernetes.io/hostname: j-node01-2
+
+harborAdminPassword: "Password"
+
+updateStrategy:
+  type: RollingUpdate
+
+# 리소스 제한 설정
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
+  limits:
+    memory: 1Gi
+    cpu: 500m

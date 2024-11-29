@@ -1,0 +1,16 @@
+/* Jenkins 2.x 버전용 네비게이션 바 스타일 */
+#header {
+    background-color: #2C3E50 !important;
+    border-bottom: 1px solid #233140 !important;
+}
+
+/* 추가적인 네비게이션 바 요소들의 스타일 */
+.jenkins-header {
+    background-color: #2C3E50 !important;
+}
+
+/* 네비게이션 메뉴 스타일 */
+.page-header {
+    background-color: #4A235A !important;
+}
+

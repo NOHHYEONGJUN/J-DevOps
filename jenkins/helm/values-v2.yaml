@@ -1,0 +1,94 @@
+ontroller:
+  serviceType: ClusterIP
+  admin:
+    username: "admin"
+    password: "password"
+  installPlugins:
+    - kubernetes:latest
+    - git:latest
+    - configuration-as-code:latest
+    - cloudbees-folder:latest
+    - matrix-auth:latest
+    - role-strategy:latest
+    - workflow-aggregator:latest
+
+  # 두 워커 노드 중 하나를 선택하도록 설정
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - j-node01
+            - j-node02
+
+  # nodeSelector 제거하고 affinity로 대체
+
+  numExecutors: 5
+
+  JCasC:
+    enabled: true
+    configScripts:
+      jenkins: |
+        jenkins:
+          securityRealm:
+            local:
+              allowsSignup: false
+              users:
+                - id: "admin"
+                  password: "admin123"
+          authorizationStrategy:
+            roleBased:
+              roles:
+                global:
+                  - name: "admin"
+                    description: "Administrator role with all permissions"
+                    permissions:
+                      - "Overall/Administer"
+                    assignments:
+                      - "admin"
+
+  javaOpts: >-
+    -Xmx4g
+    -Xms4g
+    -XX:+UseG1GC
+    -XX:+ExplicitGCInvokesConcurrent
+    -XX:+ParallelRefProcEnabled
+    -Dhudson.model.DirectoryBrowserSupport.CSP=
+    -Djenkins.install.runSetupWizard=false
+
+  resources:
+    requests:
+      cpu: "1000m"
+      memory: "2Gi"
+    limits:
+      cpu: "4000m"
+      memory: "8Gi"
+
+  probes:
+    startupProbe:
+      failureThreshold: 12
+      periodSeconds: 10
+      initialDelaySeconds: 60
+    livenessProbe:
+      failureThreshold: 5
+      periodSeconds: 10
+      initialDelaySeconds: 60
+    readinessProbe:
+      failureThreshold: 3
+      periodSeconds: 10
+      initialDelaySeconds: 60
+
+persistence:
+  enabled: true
+  storageClass: local-storage
+  size: 20Gi
+  accessMode: ReadWriteOnce
+
+serviceAccount:
+  create: true
+
+rbac:
+  create: true

@@ -1,0 +1,11 @@
+blueocean
+docker
+docker pipeline
+general webhook trigger
+maven integration
+gradle
+nodejs
+sonarqube scanner
+ssh server
+ssh agent
+simple theme

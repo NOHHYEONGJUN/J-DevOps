@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harbor-custom-title
+  namespace: harbor
+data:
+  setting.json: |
+    {
+        "headerBgColor": {
+        "darkMode": "",
+        "lightMode": ""
+      },
+      "loginBgImg": "",
+      "loginTitle": "",
+      "product": {
+        "name": "J-Harbor",
+        "logo": "",
+        "introduction": ""
+      }
+    }
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8"/>
+        <title>J-Harbor</title>
+        <base href="/"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
+    <link rel="stylesheet" href="styles.ac415221c96d2bef.css"></head>
+    <body>
+        <harbor-app>
+            <div class="spinner spinner-lg app-loading app-loading-fixed">
+                Loading...
+            </div>
+        </harbor-app>
+    <script src="runtime.91e26be486c2d932.js" type="module"></script><script src="polyfills.d87db3092ff69ed9.js" type="module"></script><script src="scripts.3846d86d42cdb753.js" defer></script><script src="main.0bf54bbf8743aac2.js" type="module"></script></body>
+    </html>
